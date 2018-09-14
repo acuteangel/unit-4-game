@@ -1,0 +1,11 @@
+.visibility{
+    width:0px;
+}
+
+.active-enemy {
+    border: solid 5px black;
+}
+
+.active-player {
+    border: solid 5px blue;
+}
