@@ -9,3 +9,16 @@
 .active-player {
     border: solid 5px blue;
 }
+
+#image {
+    height: 110px;
+    width: 100px;
+
+background: url('../images/envy-death.png') 1px 0px; 
+}
+
+body {
+    /* background-color: #89D79A; */
+    /* background-color: black; */
+    
+}

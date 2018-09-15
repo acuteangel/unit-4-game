@@ -154,4 +154,146 @@ $(document).ready(function() {
         $("#game-over").text("You lose!")
     }
 
-})
+
+
+
+    //animations
+
+
+    function envyIdle() {
+        var position = 41;
+// height: 69px;
+// width: 41px;
+// background: url('../images/envy-idle.png') 0xp 0px; 
+        const interval = 150;
+        setInterval(function(){
+            $("#image").css("background-position", "-"+position+"px 0px");
+            switch (position) {
+                case 0:
+                    position = 41;
+                    break;
+                case 41:
+                    position = 85;
+                    break;
+                case 85:
+                    position = 128;
+                    break;
+                case 128:
+                    position = 0;
+                    break;
+        }}, interval);
+}
+
+    
+function envyKick() {    
+    //     height: 73px;
+    //     width: 51px;
+    // background: url('../images/envy-kick.png') 11px 0px; 
+        var positionX = 42;
+        var positionY = 1;
+        var width = 51
+        const interval = 100;
+        eKID = setInterval(function(){
+            $("#image").css("background-position", "-"+positionX+"px "+positionY+"px");
+            $("#image").css("width", width+"px");
+            switch (positionX) {
+                case 426:
+                    stopAnimate(eKID);
+                    break;
+                case 42:
+                    positionX = 97;
+                    break;
+                case 97:
+                    positionX = 156;
+                    width = 70;
+                    break;
+                case 156:
+                    positionX = 233;
+                    width = 68;
+                    break;
+                case 233:
+                    positionX = 304;
+                    width = 64;
+                    break;
+                case 304:
+                    positionX = 373;
+                    positionY = 0;
+                    width = 51;
+                    break;
+                case 373:
+                    positionX = 426;
+                    width = 51;
+        };
+    }, interval);
+    }
+
+function envyDeath() {    
+//     height: 110px;
+//     width: 100px;
+
+// background: url('../images/envy-death.png') 1px 0px; 
+    const interval = 100;
+    var frame = 1;
+    var positionX=0;
+    var positionY=0;
+    eDID = setInterval(function(){        
+        $("#image").css("background-position", "-"+positionX+"px -"+positionY+"px");
+        switch (frame) {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 15:
+            case 16:
+            case 17:
+            case 18: 
+            case 19: 
+            case 20: 
+            case 22: 
+            case 23: 
+            case 24: 
+            case 25: 
+            case 26: 
+            case 27:             
+            case 29: 
+            case 30: 
+            case 31: 
+            case 32: 
+            case 33: 
+            case 34: 
+            case 36: 
+            case 37: 
+            case 38: 
+            case 39: 
+            case 40:
+            case 41:
+                frame++;
+                positionX = positionX + 100;
+                break;
+            case 7:                
+            case 14:
+            case 21:
+            case 28:
+            case 35: 
+                frame++;
+                positionX = 0;
+                positionY = positionY+111;
+                break;            
+            
+            case 42:
+            stopAnimate(eDID);
+    };
+    }, interval);
+    })
+
+function stopAnimate(arg) {
+    clearInterval(arg);
+    }
