@@ -158,9 +158,44 @@ $(document).ready(function() {
 
 
     //animations
+var scott = {
+    attack1: function () {
+//     height: 100px;
+//     width: 60px;
+// background: url('../images/scott-attack1.png') 0px 0px; 
+        const interval = 100;
+        var sp1ID = setInterval(function(){                
+            if (positionX <420) {
+                positionX = positionX + 60;
+            } else {
+                stopAnimate(sp1ID);
+            }
+            $("#image").css("background-position", "-"+positionX+"px -"+positionY+"px");
+        }, interval);
+    },
+
+    attack2: function () {        
+//     height: 61px;
+//     width: 60px;
+// background: url('../images/scott-attack2.png') 0px 0px; 
+        const interval = 100;
+        var s2ID = setInterval(function(){
+            if (positionX !== 960) {
+                positionX = positionX + 60;
+            } else {
+                stopAnimate(s2ID);
+            }
+            $("#image").css("background-position", "-"+positionX+"px -"+positionY+"px");
+    }, interval);
+    }
+    
+
+}
 
 
-    function envyIdle() {
+
+var envy = {
+    idle : function() {
         var position = 41;
 // height: 69px;
 // width: 41px;
@@ -181,11 +216,12 @@ $(document).ready(function() {
                 case 128:
                     position = 0;
                     break;
-        }}, interval);
-}
+            }
+        }, interval);
+    },
 
     
-function envyKick() {    
+    attack1: function() {    
     //     height: 73px;
     //     width: 51px;
     // background: url('../images/envy-kick.png') 11px 0px; 
@@ -223,77 +259,79 @@ function envyKick() {
                 case 373:
                     positionX = 426;
                     width = 51;
-        };
-    }, interval);
-    }
+            };
+        }, interval);
+    },
 
-function envyDeath() {    
+    death: function() {
 //     height: 110px;
 //     width: 100px;
 
-// background: url('../images/envy-death.png') 1px 0px; 
-    const interval = 100;
-    var frame = 1;
-    var positionX=0;
-    var positionY=0;
-    eDID = setInterval(function(){        
-        $("#image").css("background-position", "-"+positionX+"px -"+positionY+"px");
-        switch (frame) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            case 12:
-            case 13:
-            case 15:
-            case 16:
-            case 17:
-            case 18: 
-            case 19: 
-            case 20: 
-            case 22: 
-            case 23: 
-            case 24: 
-            case 25: 
-            case 26: 
-            case 27:             
-            case 29: 
-            case 30: 
-            case 31: 
-            case 32: 
-            case 33: 
-            case 34: 
-            case 36: 
-            case 37: 
-            case 38: 
-            case 39: 
-            case 40:
-            case 41:
-                frame++;
-                positionX = positionX + 100;
-                break;
-            case 7:                
-            case 14:
-            case 21:
-            case 28:
-            case 35: 
-                frame++;
-                positionX = 0;
-                positionY = positionY+111;
-                break;            
-            
-            case 42:
-            stopAnimate(eDID);
-    };
-    }, interval);
-    })
+// background: url('../images/envy-death.png') -600px 0px; 
+        const interval = 100;
+        var frame = 1;
+        var positionX=600;
+        var positionY=0;
+        eDID = setInterval(function(){        
+            $("#image").css("background-position", "-"+positionX+"px -"+positionY+"px");
+            switch (frame) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 15:
+                case 16:
+                case 17:
+                case 18: 
+                case 19: 
+                case 20: 
+                case 22: 
+                case 23: 
+                case 24: 
+                case 25: 
+                case 26: 
+                case 27:             
+                case 29: 
+                case 30: 
+                case 31: 
+                case 32: 
+                case 33: 
+                case 34: 
+                case 36: 
+                case 37: 
+                case 38: 
+                case 39: 
+                case 40:
+                case 41:
+                    frame++;
+                    positionX = positionX - 100;
+                    break;
+                case 7:                
+                case 14:
+                case 21:
+                case 28:
+                case 35: 
+                    frame++;
+                    positionX = 600;
+                    positionY = positionY+111;
+                    break;            
+                
+                case 42:
+                stopAnimate(eDID);
+            };
+        }, interval);
+    }
+}
 
 function stopAnimate(arg) {
     clearInterval(arg);
     }
+})

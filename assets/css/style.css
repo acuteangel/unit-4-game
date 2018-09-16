@@ -11,14 +11,14 @@
 }
 
 #image {
-    height: 110px;
-    width: 100px;
+    height: 61px;
+    width: 60px;
 
-background: url('../images/envy-death.png') 1px 0px; 
+background: url('../images/scott-attack2.png') 0px 0px; 
 }
 
 body {
     /* background-color: #89D79A; */
-    /* background-color: black; */
+    background-color: black;
     
 }
