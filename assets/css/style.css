@@ -1,24 +1,27 @@
-.visibility{
-    width:0px;
-}
-
-.active-enemy {
-    border: solid 5px black;
-}
-
-.active-player {
-    border: solid 5px blue;
-}
-
-#image {
-    height: 61px;
-    width: 60px;
-
-background: url('../images/scott-attack2.png') 0px 0px; 
+html {
+    height: 98vh;
 }
 
 body {
     /* background-color: #89D79A; */
     background-color: black;
-    
+    min-height: 98vh;
+    margin: 0;
 }
+
+#wrapper {
+    margin: auto;
+}
+
+img {
+    max-width: 98vw;
+    height: auto;
+    width: auto\9;
+}
+
+.layer1 {z-index: 1; position: absolute}
+.layer2 {z-index: 2; position: absolute}
+
+#logo {
+    top: 5vh;
+    left: 49vw;}

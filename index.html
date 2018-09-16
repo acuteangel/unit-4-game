@@ -8,26 +8,17 @@
     </head>
 
     <body>
-        <div id="demo">
-            <p id="image"></p>
+        <div id="wrapper">
+            <div class="layer1" id="loading-screen" hidden><img src="assets/images/vbi.PNG" class="layer1"></div>
+            <div class="layer1" id="title-screen" hidden><img src="assets/images/title-top.png" class="layer1"></div>
+            <div class="layer2" id="logo" hidden><img src="assets/images/logo.png" class="layer2"></div>
         </div>
-        <!-- <h1 id="title">game fighter</h1>
-        <p id="start-button">start</p>
-        <p id="player-prompt" hidden>Choose a player</p>
-        <p id="character-one" hidden><img src="assets/images/51RhR9ixaRL._SX425_.jpg"></p>
-        <p id="character-two" hidden><img src="assets/images/download.jpg"></p>
-        <p id="character-three" hidden><img src="assets/images/The-Simple-A-Letter-16.jpg"></p>
-        <h1 id="enemy-prompt" hidden>Select your enemy</h1>
-        <p id="enemy-one" hidden><img src="assets/images/51RhR9ixaRL._SX425_.jpg"></p>
-        <p id="enemy-two" hidden><img src="assets/images/download.jpg"></p>
-        <p id="enemy-three" hidden><img src="assets/images/The-Simple-A-Letter-16.jpg"></p>
-        <p id="player-hp"></p>
-        <p id="enemy-hp"></p>
-        <p id="game-over"></p>
-        <button id="fight" hidden>Fight</button> -->
 
+        <audio id="title-music">
+            <source src="assets/music/01 Scott Pilgrim Anthem.mp3" type="audio/mpeg">
+        </audio>
 
         <script type="text/javascript" src="assets/javascript/game.js"></script>
-        <script type="text/javascript" src="assets/javascript/animation.js"></script>
+        <!-- <script type="text/javascript" src="assets/javascript/animation.js"></script> -->
     </body>
 </html>

@@ -46,3 +46,10 @@ character object {
 when player attacks:
     player attack increases by base amount
     special mete?
+
+
+layers:
+0: background images
+1: characters
+2: menus
+3: selectors

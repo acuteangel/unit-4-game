@@ -9,15 +9,27 @@ $(document).ready(function() {
     var enemyAttack = 0;
     var playerBase = 0;
     var deadEnemies = [];
+    var scene = 0;
+
+    //load screen
+    $("#loading-screen").fadeIn(1000, function (){
+        $(document).on("click keypress", function (){
+            $("#loading-screen").fadeOut("slow", function(){
+                $("#title-screen").fadeIn("slow", function(){
+                    $("#title-music").get(0).play();
+                    $("#title-music").get(0).volume = 0.2;
+                    $("#logo").fadeIn("slow")
+                    scene = 1;
+                });
+            });
+        })
+    });
 
     //game start
-    $("#start-button").on("click",function() {
-        $("#title").empty();
-        $("#start-button").empty();
-        $("#character-one").toggle();
-        $("#character-two").toggle();        
-        $("#character-three").toggle();
-        $("#player-prompt").toggle();
+    $(document).on("click keypress",function() {
+        if (scene = 1) {
+            
+        }
         })
 
     
