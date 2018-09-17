@@ -4,19 +4,80 @@
         <title>Turn based game</title>
         <link rel="stylesheet" href="assets/css/reset.css">
         <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 
     <body>
+        
         <div id="wrapper">
-            <div class="layer1" id="loading-screen" hidden><img src="assets/images/vbi.PNG" class="layer1"></div>
-            <div class="layer1" id="title-screen" hidden><img src="assets/images/title-top.png" class="layer1"></div>
-            <div class="layer2" id="logo" hidden><img src="assets/images/logo.png" class="layer2"></div>
+            <img id=filler src="assets/images/Place-Holder.jpg">
+            <img src="assets/images/vbi.PNG"         alt="loading-screen"               id="loading-screen"   class="background" hidden>
+            <img src="assets/images/title-top.png"   alt="title-screen"                 id="title-screen"     class="background" hidden>
+            <img src="assets/images/logo.png"        alt="logo"                         id="logo"             class="layer2" hidden>
+            <img src="assets/images/char-select.jpg" alt="char-select-bg"               id="character-select" class="background" hidden>
+            <img src="assets/images/okay.png"        alt="okay"                         id="okay"             class="layer2" hidden>
+
+            <div                                                                        id="scott-container"  class="scott layer2"  hidden>
+                <img src="assets/images/scott/scott_idle.gif" alt="scott-idle"          id="scott-idle"       class="scott layer2" >
+                <img src="assets/images/scott/scott_dash.gif" alt="scott-running"       id="scott-running"    class="scott layer2" hidden>
+                <img src="assets/images/scott/scott_victory.gif" alt="scott-victory"    id="scott-victory"    class="scott layer2" hidden>
+            </div>
+            <div                                                                        id="scott-stats"      class="scott layer3" hidden>
+                <h1>SCOTT PILGRIM</h1>
+                <h1>HP: 141</h1>
+                <h1>ATTACK POWER: 12</h1>
+                <h1>MAIN ATTACK: UPPERCUT</h1>
+                <h1>SPECIAL ATTACK: FLURRY</h1>                
+            </div>
+            
+            <div                                                                        id="ramona-container" class="ramona layer2" hidden>
+                <img src="assets/images/ramona/ramona-idle.gif" alt="ramona-idle"       id="ramona-idle"      class="ramona layer2" >
+                <img src="assets/images/ramona/ramona_dash.gif" alt="ramona-running"    id="ramona-running"   class="ramona layer2" hidden>
+                <img src="assets/images/ramona/ramona_victory.gif" alt="ramona-victory"    id="ramona-victory"    class="ramona layer2" hidden>
+            </div>
+            <div                                                                        id="ramona-stats"      class="ramona layer3" hidden>
+                <h1>RAMONA FLOWERS</h1>
+                <h1>HP: 141</h1>
+                <h1>ATTACK POWER: 12</h1>
+                <h1>MAIN ATTACK: HAMMER SWING</h1>
+                <h1>SPECIAL ATTACK: SHOTGUN PUNCH</h1>                
+            </div>
+            
+            <div                                                                        id="stills-container" class="stills layer2" hidden>
+                <img src="assets/images/stills/stills_idle.gif" alt="stills-idle"       id="stills-idle"      class="stills layer2" >
+                <img src="assets/images/stills/stephen_dash.gif" alt="stills-running"   id="stills-running"   class="stills layer2" hidden>
+                <img src="assets/images/stills/stephen_dash.gif"                                                                      id="stills-victory"    class="stills layer2" hidden>
+            </div>
+            <div                                                                        id="stills-stats"      class="stills layer3" hidden>
+                <h1>STEPHEN STILLS</h1>
+                <h1>HP: 141</h1>
+                <h1>ATTACK POWER: 12</h1>
+                <h1>MAIN ATTACK: PUMMEL</h1>
+                <h1>SPECIAL ATTACK: SHOCKWAVE</h1>                
+            </div>
+            
+            <div                                                                        id="kim-container" class="kim layer2" hidden>
+                <p                                                                      id="kim-idle"      class="kim layer2" ></p>
+                <img src="assets/images/kim/kim_walk.gif" alt="kim-running"             id="kim-running"   class="kim layer2" hidden>
+                <img src="assets/images/kim/kim_victory.gif" alt="kim-victory"          id="kim-victory"   class="kim layer2" hidden>
+            </div>
+            <div                                                                        id="kim-stats"      class="kim layer3" hidden>
+                <h1>KIM PINE</h1>
+                <h1>HP: 141</h1>
+                <h1>ATTACK POWER: 12</h1>
+                <h1>MAIN ATTACK: SLAP</h1>
+                <h1>SPECIAL ATTACK: SNEEZE</h1>                
+            </div>
+            
         </div>
 
-        <audio id="title-music">
-            <source src="assets/music/01 Scott Pilgrim Anthem.mp3" type="audio/mpeg">
+        <!-- <audio id="title-music">
+            <source src="assets/music/01 Scott Pilgrim Anthem.mp3" type="audio/mp3">
         </audio>
+        <audio id="character-music">
+            <source src="assets/music/Extras - 02 Character Select.mp3" type="audio/mp3">
+        </audio> -->
 
         <script type="text/javascript" src="assets/javascript/game.js"></script>
         <!-- <script type="text/javascript" src="assets/javascript/animation.js"></script> -->

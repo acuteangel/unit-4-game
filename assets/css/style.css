@@ -1,27 +1,161 @@
-html {
-    height: 98vh;
+body {
+    /* background-color: black; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 0;
+    font-family: 'Press Start 2P';
+    color: #eab931;
 }
 
-body {
-    /* background-color: #89D79A; */
-    background-color: black;
-    min-height: 98vh;
-    margin: 0;
+h1{
+    position: relative;
+    color: #F3D46A;
+    text-shadow: -0.2vw 0 #B11B00, 0 0.2vw #B11B00, 0.2vw 0 #B11B00, 0 -0.2vw #B11B00;
+    font-size: 1.5vw;
+    line-height: 2vw;
+    margin: 1vw;    
 }
 
 #wrapper {
-    margin: auto;
+    width: 95vw;
+    margin: 2.5vh auto;
+    position: relative;    
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    background-color: white;
 }
 
-img {
-    max-width: 98vw;
+#filler {
+    position: absolute;
+    visibility: visible;
+    width: 95vw;
     height: auto;
-    width: auto\9;
+    z-index: 0;
 }
 
-.layer1 {z-index: 1; position: absolute}
-.layer2 {z-index: 2; position: absolute}
+.layer1, .background {position: absolute; z-index: 1;}
+.layer2 {position: absolute; z-index: 2;}
+.layer3 {position: absolute; z-index: 3;}
 
-#logo {
-    top: 5vh;
-    left: 49vw;}
+.background {    
+    width: 95vw;
+    height: 47.5vw;
+}
+
+ #logo {
+    top: 0.5vw;
+    left: 45vw;
+    width: 43.65vw;
+    height: 24.3vw;
+}
+
+#okay {
+    position: absolute;
+    top: 10vw;
+    left: 36vw;
+    background: black;
+    height: 11.2vw;
+    width: 21.8vw;
+}
+
+#scott-container, #ramona-container, #stills-container {
+    background-color: white;
+    width: auto;
+    height: auto;
+    position: absolute;
+}
+#scott-container {
+    top: 23vw;
+    left: 13.3vw;
+}
+
+#ramona-container{
+    top: 24vw;
+    left: 35vw;
+}
+
+#stills-container{
+    top: 23.5vw;
+    left: 51.1vw;
+}
+
+#kim-container{
+    top: 24.3vw;
+    left: 71.6vw;
+}
+
+#scott-idle, #stills-idle{
+    width: 10vw;
+    height: auto;
+}
+#ramona-idle{
+    width: auto;
+    height: 10.335vw;
+}
+
+#kim-idle {    
+    height: 10.33vw;
+    width: 5vw;
+    background: url('../images/kim/kim-idle.png') 0px 0px;
+    background-size: 20vw 10.33vw;
+}
+
+#ramona-running, #scott-running, #stills-running, #kim-running{        
+    height: 11.5vw;
+    width: auto;
+}
+
+#scott-running{
+    top: 0vw;
+    left: -0.5vw;
+}
+
+#ramona-running{
+    top: -1.1vw;
+    left: -3vw;
+}
+
+#kim-running{
+    top: -0.8vw;
+    left: -0.5vw;
+}
+
+#scott-stats, #ramona-stats, #stills-stats, #kim-stats {
+    position: absolute;
+    top: 12vw;
+    background: black;
+    border: .5vw dashed #0066ff;
+    height: 25vw;
+    width: 30vw;
+}
+
+#scott-stats, #kim-stats {
+    left: 32vw;
+}
+
+#ramona-stats {
+    left: 48vw;
+}
+
+#stills-stats{
+    right: 48vw;
+}
+
+#ramona-victory, #scott-victory, #stills-victory, #kim-victory{
+    height: 12vw;
+    width: auto;
+}
+
+#scott-victory {
+    left: 0.9vw;
+    top: -0.3vw;
+}
+
+#ramona-victory, #stills-victory, #kim-victory {
+    left: -1vw;
+    top: -1.6vw;
+}

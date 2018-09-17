@@ -1,4 +1,8 @@
 # unit-4-game
+https://acuteangel.github.io/unit-4-game/
+
+6px = 1vw
+
 title scene
     fade in
     title
@@ -37,6 +41,7 @@ fight scene
 
 character object {
     hp: x
+    pow: z
     sp: y
     idle: function
     attack1: function
