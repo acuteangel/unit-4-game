@@ -2,12 +2,14 @@ $(document).ready(function() {
     var scene = 0;
     // var positionX = 0
     var playableCharacters = ["scott", "ramona", "stills", "kim"];
+    var availableEnemies = ["matthew"]
     var player = "";
-    var runningID=[]    
-    var scott = {
-        hp: 151,
-        basicAttack: "PUNCH",
-        specialAttack: "FLURRY",
+    var enemy = "";
+    var message= "";
+    var runningID=[];
+    var isTextUp = false;
+    var moveSequence = false;
+    var scott = {        
         attack1: function(){motionTemplate (100, 60, 420, false, "scott", "attack1")},
     //     height: 100px;
     //     width: 60px;
@@ -19,7 +21,8 @@ $(document).ready(function() {
         damaged: function(){motionTemplate(100, 12, 156, false, "scott", "damaged")}
     }
     
-    function motionTemplate(time, stepX, lastframe, loop, who, action) {            
+    function motionTemplate(time, stepX, lastframe, loop, who, action, size) {
+        createAnimation(who, action, size)            
         const interval = time;
         var positionX = 0;
         var ID = setInterval(function(){            
@@ -31,8 +34,7 @@ $(document).ready(function() {
                 clearInterval(ID);}
             $("#"+who+"-"+action).css("background-position", "-"+positionX+"vw 0vw");            
         }, interval);
-        runningID.push(ID);
-        console.log(runningID);
+        runningID.push(ID);        
     }
 
     function clearAllIntervals(){
@@ -43,14 +45,16 @@ $(document).ready(function() {
 
     var ramona = {}
     var stills = {
-        victory: function(){motionTemplate(100, 8, 32, true, "stills", "victory")}
+        victory: function(){motionTemplate(100, 8, 32, true, "stills", "victory", "40vw 11vw")} //40vw 11vw
     }
     var kim = {
-        idle : function(){motionTemplate(100, 5, 15, true, "kim", "idle")},
+        idle : function(){motionTemplate(100, 5, 15, true, "kim", "idle", "20vw 10.33vw")}, //20vw 10.33vw
     }
     var enemies = ["matthew","envy"]
     var matthew = {
-        idle: function(){motionTemplate(100, 8, 40, true, "matthew", "idle")} 
+        idle: function(){motionTemplate(100, 8.8, 42.8, true, "matthew", "idle", "52.8vw 10.45vw")}, //52.8vw 10.45vw
+        running: function(){motionTemplate(100, 10, 70, true, "matthew", "running", "80vw 11vw")}, //80vw 11vw
+        damaged: function(){motionTemplate(100, 13, 169, false, "matthew", "damaged", "182vw 17vw")}
     }
     var envy = {
         idle : function() {
@@ -199,11 +203,11 @@ $(document).ready(function() {
     $("#loading-screen").fadeIn(1000, function (){        
         $(document).on("click keypress", function (){
             if (scene == 0) {                
-                $("#loading-screen").fadeOut("slow", function(){
+                $("#loading-screen").fadeOut("fast", function(){
                     $("#title-screen").attr("src", "assets/images/title-top.png")
-                    $("#title-screen").fadeIn("slow", function(){
+                    $("#title-screen").fadeIn("fast", function(){
                         $("#logo").attr("src","assets/images/logo.png")
-                        $("#logo").fadeIn("slow");
+                        $("#logo").fadeIn("fast");
                         $("#logo").animate({top: '+=1vh'}, 1000)
                         $("#logo").animate({top: '-=1vh'}, 1000)
                         scene = 1;                        
@@ -218,35 +222,69 @@ $(document).ready(function() {
     });
 
     //scene transitions    
-    $(document).on("click keypress", function(){ 
+    $(document).on("click keypress", function(){        
         if (scene == 1) {            
             $("#logo").clearQueue();    
             scene = 2;
             $("#logo").fadeOut(1000);            
             $("#title-screen").fadeOut(1000, function(){
                 $("#character-select").attr("src","assets/images/char-select.jpg")
-                $("#character-select").fadeIn("slow");
+                $("#character-select").fadeIn("fast");
                 $.each(playableCharacters, characterFadeIn)
                 $.each(playableCharacters, hoverTrigger)
-                kim.idle();
+                kim.idle();                
                 $.each(playableCharacters, selectTrigger)
             })
+        } 
+        if (isTextUp && $("#text-message").text !== "" && moveSequence == false) {
+            $("#text-menu").hide("fast");
+            $("#text-message").text("")
+            $("#fight-menu").show("fast");
+            isTextUp = false;
+        } 
+    })
+
+    function displayText(message){
+        $("#text-message").text(message)
+        $("#text-menu").show("fast");
+        $("#fight-menu").hide("fast", function(){isTextUp = true;});        
+    }
+    
+    $("#attack1-button").on("click", function(){
+        moveSequence = true;
+        displayText(player+" attacks!");
+        if (player == "stills") {
+            $("#stills-attack1").attr("src","assets/images/stills/stills-attack1.gif");
+            $("#stills-attack1").toggle();
+            $("#stills-idle").toggle();
+        } else {
+            player.attack1();
         }
+    })
+    $("#attack2-button").on("click", function(){
+        moveSequence = true;
+        displayText(player+" uses a special!");
+    })
+    $("#block-button").on("click", function(){
+        moveSequence = true;
+        displayText(player+" blocks!");
+    })
+    $("#flee-button").on("click", function(){
+        displayText("Can't flee this fight!");
     })
 
     //
     function characterFadeIn(index, value){
-        $("#"+value+"-container").fadeIn("slow");
+        $("#"+value+"-container").fadeIn("fast");
         if (value == "kim") {
-            $("#kim-idle").css("background", "url('assets/images/kim/kim-idle.png') 0px 0px")
-            $("#kim-idle").css("background-size", "20vw 10.33vw")
+            // createAnimation("kim", "idle", "20vw 10.33vw")
         }else{
             $("#"+value+"-idle").attr("src","assets/images/"+value+"/"+value+"-idle.gif")
         }
         $("#"+value+"-running").attr("src","assets/images/"+value+"/"+value+"_dash.gif")
     }
     function characterFadeOut(index, value){        
-        $("#"+value+"-container").fadeOut("slow");
+        $("#"+value+"-container").fadeOut("fast");
     }
     function hoverTrigger(index, value){
         $("#"+value+"-container").hover(function(){characterHover(value)},function(){characterHover(value)})
@@ -256,7 +294,14 @@ $(document).ready(function() {
             $("#"+char+"-idle").toggle();
             $("#"+char+"-running").toggle();
             $("#"+char+"-stats").toggle();
+        } else if (scene==3 && char=="matthew"){
+            $("#"+char+"-idle").toggle();
+            $("#"+char+"-running").toggle();
         }
+    }
+    function createAnimation(who, action, bg){
+        $("#"+who+"-"+action).css("background", "url('assets/images/"+who+"/"+who+"-"+action+".png') 0px 0px")
+        $("#"+who+"-"+action).css("background-size", bg)
     }
 
     
@@ -266,6 +311,7 @@ $(document).ready(function() {
 
     function characterSelect(index, value){
         if (player=="") {
+            scene = 3
             player = value;
             $("#"+value+"-idle").hide();
             $("#"+value+"-running").hide();
@@ -274,11 +320,10 @@ $(document).ready(function() {
                 $("#"+value+"-victory").attr("src","assets/images/"+value+"/"+value+"_victory.gif")
                 $("#"+value+"-victory").toggle();                
             } else if (player == "stills"){
-                $("#stills-victory").css("background", "url('assets/images/stills/stills-victory.png') 0px 0px")
-                $("#stills-victory").css("background-size", "40vw 11vw")
+                // createAnimation("stills","victory","40vw 11vw")
                 stills.victory();
             }
-            $("#okay").attr("src","assets/images/okay.png");
+            $("#okay").attr("src","assets/images/okay2.png");
             $("#okay").fadeIn(200);
             $("#okay").fadeOut(200);
             $("#okay").fadeIn(200);
@@ -288,11 +333,68 @@ $(document).ready(function() {
             $("#okay").fadeIn(200);
             $("#okay").fadeOut(200, function(){
                 $.each(playableCharacters, characterFadeOut);
-                $("#character-select").fadeOut("slow");
-                clearAllIntervals();
+                $("#character-select").fadeOut("fast", function(){
+                    $("#"+value+"-victory").hide();
+                    clearAllIntervals();
+                    $("#enemy-select").attr("src","assets/images/school.png")
+                    $("#enemy-select").fadeIn("fast")
+                    // createAnimation("matthew","idle","52.8vw 10.45vw");
+                    // createAnimation("matthew", "running", "80vw 11vw");
+                    $("#matthew-container").fadeIn("fast",matthew.idle());
+                    matthew.running();
+                    $.each(availableEnemies, hoverTrigger)
+                    $.each(availableEnemies, selectTrigger)
+                    });                
             });
+        } else if (enemy=="" && scene == 3){
+            scene = 4
+            enemy = value;            
+            $("#"+value+"-idle").hide();
+            $("#"+value+"-running").show();
+            
+            $("#okay").fadeIn(200);
+            $("#okay").fadeOut(200);
+            $("#okay").fadeIn(200);
+            $("#okay").fadeOut(200);            
+            $("#okay").fadeIn(200);
+            $("#okay").fadeOut(200);
+            $("#okay").fadeIn(200);
+            $("#okay").fadeOut(200, function(){
+                $.each(availableEnemies, characterFadeOut);
+                $("#"+value+"-running").hide();
+                $("#enemy-select").fadeOut("fast", function(){
+
+                    clearAllIntervals();
+                    battlescene();
+                })
+            })
         }
     }
+
+    function battlescene(){        
+        $("#"+enemy+"-background").attr("src","assets/images/"+enemy+"/"+enemy+"-background.png")
+        $("#"+enemy+"-background").fadeIn("fast")
+        $("#"+player+"-idle").show();
+        if (availableEnemies.length == 1){
+            $("#"+player+"-container").css({"top": "30vw", "left": "26vw"})
+        }
+        if (player == "kim"){
+            kim.idle()
+        }        
+        $("#"+player+"-container").fadeIn("fast")
+        $("#"+enemy+"-container").css({"top": "30vw", "left": "60vw"})
+        $("#"+enemy+"-idle").show();
+        if (enemy == "matthew") {
+            matthew.idle()
+        }
+        $("#"+enemy+"-container").fadeIn("fast", function(){            
+            $("#current-stats").show();            
+            $("#enemy-stats").show();            
+            displayText(enemy+" is ready to battle!")
+        })        
+    }
+
+    
            
     // $("#character-one").on("click", function () {
     //     if (isPlayerSelected == false) {
