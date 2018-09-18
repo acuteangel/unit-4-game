@@ -5,30 +5,32 @@ $(document).ready(function() {
     var frame = 0
 
     // $("#title").on("click", function() {
-    //     frame--;    
-            // $("#matthew-idle").css("width", width+"px");
+    //     frame--;
+    //     positionX = positionX - 72;    
+    //         // $("#stills-victory").css("width", width+"px");
             
-    //     $("#matthew-idle").css("background-position", "-"+positionX+"px -"+positionY+"px");
+    //     $("#stills-victory").css("background-position", "-"+positionX+"px -"+positionY+"px");
     //     $("#title").text(frame +" "+ positionX +" "+ positionY);
     // })
 
     
-var matthew = {idle: function(){
+var stills = {victory: function(){
         // var width = 100;
         const interval = 100;
-        frame++;
-        setInterval(function(){    
-            // $("#matthew-idle").css("width", width+"px");
-        if (positionX !== 40) {
+        // frame++;
+        var tID=setInterval(function(){    
+            // $("#stills-victory").css("width", width+"px");
+        if (positionX !== 32) {
             positionX = positionX + 8;
         } else {
             positionX = 0;
+            // stopAnimate(tID);
         }
-        $("#matthew-idle").css("background-position", "-"+positionX+"vw 0px");
+        $("#stills-victory").css("background-position", "-"+positionX+"vw 0px");
     }, interval);}
     // }
 
 }
-$("#matthew-idle").on("click", matthew.idle)
+$("#stills-victory").on("click", stills.victory)
 
 })

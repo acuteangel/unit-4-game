@@ -1,45 +1,56 @@
 $(document).ready(function() {
     var scene = 0;
     // var positionX = 0
-    var playableCharacters = ["scott", "ramona", "stills", "kim"]
-    var player = ""
+    var playableCharacters = ["scott", "ramona", "stills", "kim"];
+    var player = "";
+    var runningID=[]    
     var scott = {
         hp: 151,
         basicAttack: "PUNCH",
         specialAttack: "FLURRY",
-        attack1: function(){motionTemplate (100, 60, 420, false)},
+        attack1: function(){motionTemplate (100, 60, 420, false, "scott", "attack1")},
     //     height: 100px;
     //     width: 60px;
     // background: url('../images/scott-attack1.png') 0px 0px; 
-        attack2: function(){motionTemplate(100, 60, 960, false)},
+        attack2: function(){motionTemplate(100, 60, 960, false, "scott", "attack2")},
     //     height: 61px;
     //     width: 60px;
     // background: url('../images/scott-attack2.png') 0px 0px; 
+        damaged: function(){motionTemplate(100, 12, 156, false, "scott", "damaged")}
     }
     
-    function motionTemplate(time, stepX, lastframe, loop) {            
+    function motionTemplate(time, stepX, lastframe, loop, who, action) {            
         const interval = time;
-        var positionX = 0;        
-        var tID = setInterval(function(){
-            if (positionX !== lastframe) {
-                positionX = positionX + stepX;                
-            } else if (loop) {
-                positionX = 0;
-            } else {
-                stopAnimate(tID)
-            }
-            $("#kim-idle").css("background-position", "-"+positionX+"vw 0vw");
+        var positionX = 0;
+        var ID = setInterval(function(){            
+                if (positionX !== lastframe) {
+                    positionX = positionX + stepX;                
+                } else if (loop) {
+                    positionX = 0;
+                } else {
+                clearInterval(ID);}
+            $("#"+who+"-"+action).css("background-position", "-"+positionX+"vw 0vw");            
         }, interval);
+        runningID.push(ID);
+        console.log(runningID);
+    }
+
+    function clearAllIntervals(){
+        for (i=0;i<runningID.length;i++){
+            clearInterval(runningID[i]);
+        }
     }
 
     var ramona = {}
-    var stills = {}
+    var stills = {
+        victory: function(){motionTemplate(100, 8, 32, true, "stills", "victory")}
+    }
     var kim = {
-        idle : function(){motionTemplate(100, 5, 15, true)},
+        idle : function(){motionTemplate(100, 5, 15, true, "kim", "idle")},
     }
     var enemies = ["matthew","envy"]
     var matthew = {
-        idle: function(){motionTemplate(100, 8, 40, true)}
+        idle: function(){motionTemplate(100, 8, 40, true, "matthew", "idle")} 
     }
     var envy = {
         idle : function() {
@@ -188,8 +199,10 @@ $(document).ready(function() {
     $("#loading-screen").fadeIn(1000, function (){        
         $(document).on("click keypress", function (){
             if (scene == 0) {                
-                $("#loading-screen").fadeOut("slow", function(){                    
+                $("#loading-screen").fadeOut("slow", function(){
+                    $("#title-screen").attr("src", "assets/images/title-top.png")
                     $("#title-screen").fadeIn("slow", function(){
+                        $("#logo").attr("src","assets/images/logo.png")
                         $("#logo").fadeIn("slow");
                         $("#logo").animate({top: '+=1vh'}, 1000)
                         $("#logo").animate({top: '-=1vh'}, 1000)
@@ -211,6 +224,7 @@ $(document).ready(function() {
             scene = 2;
             $("#logo").fadeOut(1000);            
             $("#title-screen").fadeOut(1000, function(){
+                $("#character-select").attr("src","assets/images/char-select.jpg")
                 $("#character-select").fadeIn("slow");
                 $.each(playableCharacters, characterFadeIn)
                 $.each(playableCharacters, hoverTrigger)
@@ -221,8 +235,15 @@ $(document).ready(function() {
     })
 
     //
-    function characterFadeIn(index, value){        
+    function characterFadeIn(index, value){
         $("#"+value+"-container").fadeIn("slow");
+        if (value == "kim") {
+            $("#kim-idle").css("background", "url('assets/images/kim/kim-idle.png') 0px 0px")
+            $("#kim-idle").css("background-size", "20vw 10.33vw")
+        }else{
+            $("#"+value+"-idle").attr("src","assets/images/"+value+"/"+value+"-idle.gif")
+        }
+        $("#"+value+"-running").attr("src","assets/images/"+value+"/"+value+"_dash.gif")
     }
     function characterFadeOut(index, value){        
         $("#"+value+"-container").fadeOut("slow");
@@ -234,7 +255,7 @@ $(document).ready(function() {
         if (scene==2 && player=="") {
             $("#"+char+"-idle").toggle();
             $("#"+char+"-running").toggle();
-            $("#"+char+"-stats").toggle();            
+            $("#"+char+"-stats").toggle();
         }
     }
 
@@ -249,7 +270,15 @@ $(document).ready(function() {
             $("#"+value+"-idle").hide();
             $("#"+value+"-running").hide();
             $("#"+value+"-stats").hide();
-            $("#"+value+"-victory").toggle();
+            if(player !== "stills"){
+                $("#"+value+"-victory").attr("src","assets/images/"+value+"/"+value+"_victory.gif")
+                $("#"+value+"-victory").toggle();                
+            } else if (player == "stills"){
+                $("#stills-victory").css("background", "url('assets/images/stills/stills-victory.png') 0px 0px")
+                $("#stills-victory").css("background-size", "40vw 11vw")
+                stills.victory();
+            }
+            $("#okay").attr("src","assets/images/okay.png");
             $("#okay").fadeIn(200);
             $("#okay").fadeOut(200);
             $("#okay").fadeIn(200);
@@ -260,6 +289,7 @@ $(document).ready(function() {
             $("#okay").fadeOut(200, function(){
                 $.each(playableCharacters, characterFadeOut);
                 $("#character-select").fadeOut("slow");
+                clearAllIntervals();
             });
         }
     }

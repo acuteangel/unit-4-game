@@ -8,13 +8,6 @@ body {
     color: #eab931;
 }
 
-#matthew-running {    
-    height: 9.5vw;
-    width: 8vw;
-    background: url('../images/matthew/matthew-idle.png') 0px 0px;
-    background-size: 48vw 9.5vw;
-}
-
 h1{
     position: relative;
     color: #F3D46A;
@@ -107,8 +100,6 @@ h1{
 #kim-idle {    
     height: 10.33vw;
     width: 5vw;
-    background: url('../images/kim/kim-idle.png') 0px 0px;
-    background-size: 20vw 10.33vw;
 }
 
 #ramona-running, #scott-running, #stills-running, #kim-running{        
@@ -152,7 +143,7 @@ h1{
     right: 48vw;
 }
 
-#ramona-victory, #scott-victory, #stills-victory, #kim-victory{
+#ramona-victory, #scott-victory, #kim-victory{
     height: 12vw;
     width: auto;
 }
@@ -162,12 +153,38 @@ h1{
     top: -0.3vw;
 }
 
-#ramona-victory, #stills-victory, #kim-victory {
+#ramona-victory, #kim-victory {
     left: -1vw;
     top: -1.6vw;
 }
 
+#stills-victory {    
+    height: 11vw;
+    width: 8vw;
+}
+
+#scott-block {    
+    height: 9.5vw;
+    width: 7vw;
+    background: url('../images/scott/scott-block.png') 0px 0px;
+    background-size: 49vw 9.5vw;
+}
+
+#scott-damaged {    
+    height: 16.5vw;
+    width: 12vw;
+    background: url('../images/scott/scott-damaged.png') 0px 0px;
+    background-size: 168vw 16.5vw;
+}
+
 #matthew-idle {    
+    height: 9.5vw;
+    width: 8vw;
+    background: url('../images/matthew/matthew-idle.png') 0px 0px;
+    background-size: 48vw 9.5vw;
+}
+
+#matthew-running {    
     height: 9.5vw;
     width: 8vw;
     background: url('../images/matthew/matthew-idle.png') 0px 0px;
