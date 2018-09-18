@@ -1,61 +1,46 @@
 $(document).ready(function() {
     var scene = 0;
-    var positionX = 0
+    // var positionX = 0
     var playableCharacters = ["scott", "ramona", "stills", "kim"]
     var player = ""
     var scott = {
         hp: 151,
         basicAttack: "PUNCH",
         specialAttack: "FLURRY",
-        attack1: function () {
+        attack1: function(){motionTemplate (100, 60, 420, false)},
     //     height: 100px;
     //     width: 60px;
     // background: url('../images/scott-attack1.png') 0px 0px; 
-            const interval = 100;
-            var sp1ID = setInterval(function(){                
-                if (positionX <420) {
-                    positionX = positionX + 60;
-                } else {
-                    stopAnimate(sp1ID);
-                }
-                $("#image").css("background-position", "-"+positionX+"px 0px");
-            }, interval);
-        },
-    
-        attack2: function () {        
+        attack2: function(){motionTemplate(100, 60, 960, false)},
     //     height: 61px;
     //     width: 60px;
     // background: url('../images/scott-attack2.png') 0px 0px; 
-            const interval = 100;
-            var s2ID = setInterval(function(){
-                if (positionX !== 960) {
-                    positionX = positionX + 60;
-                } else {
-                    stopAnimate(s2ID);
-                }
-                $("#image").css("background-position", "-"+positionX+"px 0px");
-        }, interval);
-        }
-        
-    
     }
     
+    function motionTemplate(time, stepX, lastframe, loop) {            
+        const interval = time;
+        var positionX = 0;        
+        var tID = setInterval(function(){
+            if (positionX !== lastframe) {
+                positionX = positionX + stepX;                
+            } else if (loop) {
+                positionX = 0;
+            } else {
+                stopAnimate(tID)
+            }
+            $("#kim-idle").css("background-position", "-"+positionX+"vw 0vw");
+        }, interval);
+    }
+
     var ramona = {}
     var stills = {}
     var kim = {
-        idle : function() {            
-            const interval = 100;        
-            setInterval(function(){
-                if (positionX !== 15) {
-                    positionX = positionX + 5;
-                } else {
-                    positionX = 0;
-                }
-                $("#kim-idle").css("background-position", "-"+positionX+"vw 0px");
-            }, interval);
-        }
+        idle : function(){motionTemplate(100, 5, 15, true)},
     }
-    
+    var enemies = ["matthew","envy"]
+    var matthew = {
+        idle: function(){motionTemplate(100, 8, 40, true)}
+    }
     var envy = {
         idle : function() {
             var position = 41;

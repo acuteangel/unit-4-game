@@ -18,6 +18,8 @@ character selection scene
     prompt start or cancel    
     fade out
 
+to do:
+
 level selection scene
     fade in
     show available enemies

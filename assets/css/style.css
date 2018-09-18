@@ -8,6 +8,13 @@ body {
     color: #eab931;
 }
 
+#matthew-running {    
+    height: 9.5vw;
+    width: 8vw;
+    background: url('../images/matthew/matthew-idle.png') 0px 0px;
+    background-size: 48vw 9.5vw;
+}
+
 h1{
     position: relative;
     color: #F3D46A;
@@ -158,4 +165,11 @@ h1{
 #ramona-victory, #stills-victory, #kim-victory {
     left: -1vw;
     top: -1.6vw;
+}
+
+#matthew-idle {    
+    height: 9.5vw;
+    width: 8vw;
+    background: url('../images/matthew/matthew-idle.png') 0px 0px;
+    background-size: 48vw 9.5vw;
 }
