@@ -10,23 +10,27 @@
 
     <body>
 
-        
+            
         <!-- <p id="title">click me</p> -->
         <div id="wrapper">
-            <img id=filler src="assets/images/Place-Holder.jpg">
+            <!-- <img id=filler src="assets/images/Place-Holder.jpg">
             <img src="assets/images/vbi.PNG" alt="loading-screen" id="loading-screen"   class="background" hidden>
             <img src="" alt="title-screen"                        id="title-screen"     class="background" hidden>
             <img src="" alt="logo"                                id="logo"             class="layer2" hidden>
             <img src="" alt="char-select-bg"                      id="character-select" class="background" hidden>
             <img src="" alt="okay"                                id="okay"             class="layer2" hidden>
             <img src="" alt="enemy-select-bg"                     id="enemy-select"     class="background" hidden>
+            <img src="" alt="ko"                                  id="ko"               class="layer3" hidden>
 
             <div                                                  id="scott-container"  class="scott layer2"  hidden>
                 <img src="" alt="scott-idle"                      id="scott-idle"       class="scott layer2" >
                 <img src="" alt="scott-running"                   id="scott-running"    class="scott layer2" hidden>
                 <img src="" alt="scott-victory"                   id="scott-victory"    class="scott layer2" hidden>
-                <p                                                id="scott-block"      class="scott layer2" hidden></p>
-                <p                                                id="scott-damaged"    class="scott layer2" hidden></p>
+                <p                                                id="scott-attack1"    class="scott layer2" ></p>
+                <p                                                id="scott-attack2"    class="scott layer2" ></p>
+                <p                                                id="scott-block"      class="scott layer2" ></p>
+                <p                                                id="scott-damaged"    class="scott layer2" ></p>
+                <p                                                id="scott-up"         class="scott layer2" ></p>
             </div>
             <div                                                  id="scott-stats"      class="scott layer3" hidden>
                 <h1>SCOTT PILGRIM</h1>
@@ -35,13 +39,16 @@
                 <h1>MAIN ATTACK: UPPERCUT</h1>
                 <h1>SPECIAL ATTACK: FLURRY</h1>                
             </div>
-            
-            <div                                                  id="ramona-container" class="ramona layer2" hidden>
-                <img src="" alt="ramona-idle"                     id="ramona-idle"      class="ramona layer2" >
+             -->
+            <div                                                  id="ramona-container" class="ramona layer2" >
+                <img src="assets/images/ramona/ramona-idle.gif" alt="ramona-idle"                     id="ramona-idle"      class="ramona layer2" >
                 <img src="" alt="ramona-running"                  id="ramona-running"   class="ramona layer2" hidden>
                 <img src="" alt="ramona-victory"                  id="ramona-victory"   class="ramona layer2" hidden>
+                <!-- <p                                                id="ramona-attack1"   class="ramona layer2" hidden></p> -->
+                <!-- <p                                                id="ramona-attack2"   class="ramona layer2" hidden></p> -->
+                <p                                                id="ramona-damaged"   class="ramona layer2"></p>
             </div>
-            <div                                                  id="ramona-stats"     class="ramona layer3" hidden>
+            <!-- <div                                                  id="ramona-stats"     class="ramona layer3" hidden>
                 <h1>RAMONA FLOWERS</h1>
                 <h1>HP: 141</h1>
                 <h1>ATTACK POWER: 12</h1>
@@ -75,44 +82,48 @@
                 <h1>MAIN ATTACK: SLAP</h1>
                 <h1>SPECIAL ATTACK: SNEEZE</h1>                
             </div>
-            <div                                                  id="matthew-container"class="matthew layer2" >
+            <div                                                  id="matthew-container"class="matthew layer2" hidden>
                 <p                                                id="matthew-idle"     class="matthew layer2"></p>
-                <p                                                id="matthew-running"  class="matthew layer2" hidden></p>
-                <p                                                id="matthew-damaged" class="matthew layer2"></div>
+                <p                                                id="matthew-running"  class="matthew layer2" hidden></p>                
+                <p                                                id="matthew-attack1" class="matthew layer2"></p>
+                <p                                                id="matthew-attack2" class="matthew layer2"></p>
+                <p                                                id="matthew-damaged" class="matthew layer2"></p>
+                <p                                                id="matthew-up" class="matthew layer2"></p>
 
             </div>
             <img src="" alt="matthew-bg"                          id="matthew-background"       class="background" hidden>
+            <div id="envy-container" class="envy layer2">
+                <p id="envy-death" class="envy layer2"></p>
+            </div>
             <div id="fight-menu" class="layer4" hidden>
                 <button id="attack1-button">Attack</button>
-                <button id="attack2-button">Special</button>
+                <button id="attack2-button" disabled>Special</button>
                 <button id="block-button">Block</button>
                 <button id="flee-button">Flee</button>
             </div>
             <div id="text-menu" class="layer3" hidden>
                 <h1 id="text-message"></h1>
             </div>
-            <div id="current-stats" class="layer3" hidden>
-                <p class="tags" >HP:</p><div id="current-hp" ><div id="current-hp-bar" ></div></div>
-                <p class="tags" id="current-hp-num">100/100</p>
-                <p class="tags" >SP:</p><div id="current-sp" ><div id="current-sp-bar" ></div></div>
-                <p class="tags" id="current-sp-num">100/100</p>
+            <div id="player-stats" class="layer3" hidden>
+                <p class="tags" >HP:</p><div id="player-hp" ><div id="player-hp-bar" ></div></div>
+                <p class="tags" id="player-hp-num"></p>
+                <p class="tags" >SP:</p><div id="player-sp" ><div id="player-sp-bar" ></div></div>
+                <p class="tags" id="player-sp-num">0/100</p>
             </div>
             <div id="enemy-stats" class="layer3" hidden>
                 <p class="tags" >HP:</p><div id="enemy-hp" ><div id="enemy-hp-bar" ></div></div>
-                <p class="tags" id="enemy-hp-num">100/100</p>
+                <p class="tags" id="enemy-hp-num"></p>
                 <p class="tags" >SP:</p><div id="enemy-sp" ><div id="enemy-sp-bar" ></div></div>
-                <p class="tags" id="enemy-sp-num">100/100</p>
+                <p class="tags" id="enemy-sp-num">0/100</p>
             </div>
         </div>
 
-        <!-- <audio id="title-music">
-            <source src="assets/music/01 Scott Pilgrim Anthem.mp3" type="audio/mp3">
-        </audio>
-        <audio id="character-music">
-            <source src="assets/music/Extras - 02 Character Select.mp3" type="audio/mp3">
-        </audio> -->
+        <audio id="title-music" loop></audio>        
+        <audio id="matthew-music" loop></audio>
+        <audio id="game-over"></audio>
+        <audio id="area-clear"></audio>
 
-        <script type="text/javascript" src="assets/javascript/game.js"></script>
-        <!-- <script type="text/javascript" src="assets/javascript/animation.js"></script> -->
+        <script type="text/javascript" src="assets/javascript/game.js"></script> -->
+        </div><script type="text/javascript" src="assets/javascript/animation.js"></script>
     </body>
 </html>

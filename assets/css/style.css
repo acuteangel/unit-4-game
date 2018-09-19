@@ -9,7 +9,6 @@ body {
 }
 
 
-
 h1{
     position: relative;
     color: #F3D46A;
@@ -56,7 +55,7 @@ h1{
     height: 24.3vw;
 }
 
-#okay {
+#okay, #ko {
     position: absolute;
     top: 10vw;
     left: 36vw;    
@@ -70,43 +69,30 @@ h1{
     height: auto;
     position: absolute;
 }
-#scott-container {
-    top: 23vw;
-    left: 13.3vw;
-}
-
-#ramona-container{
-    top: 24vw;
-    left: 35vw;
-}
-
-#stills-container{
-    top: 23.5vw;
-    left: 51.1vw;
-}
-
-#kim-container{
-    top: 24.3vw;
-    left: 71.6vw;
-}
 
 #scott-idle, #stills-idle{
     width: 10vw;
     height: auto;
 }
-#ramona-idle{
-    width: auto;
-    height: 10.335vw;
-}
 
-#kim-idle {    
-    height: 10.33vw;
-    width: 5vw;
-}
-
-#ramona-running, #scott-running, #stills-running, #kim-running{        
+#ramona-running, #scott-running, #stills-running, #kim-running, #stills-attack1{        
     height: 11.5vw;
     width: auto;
+}
+
+#ramona-victory, #scott-victory, #kim-victory{
+    height: 12vw;
+    width: auto;
+}
+
+#ramona-victory, #kim-victory {
+    left: -1vw;
+    top: -1.6vw;
+}
+
+#scott-container {
+    top: 23vw;
+    left: 13.3vw;
 }
 
 #scott-running{
@@ -114,9 +100,106 @@ h1{
     left: -0.5vw;
 }
 
+#scott-victory {
+    left: 0.9vw;
+    top: -0.3vw;
+}
+
+#scott-attack1 {
+    height: 13.667vw;
+    width: 10vw;
+    top: -3vw;
+}
+
+#scott-attack2 {
+    height: 10.333vw;
+    width: 10vw;
+    top: 1vw;
+    left: 1vw;
+}
+
+#scott-block {    
+    height: 11vw;
+    width: 7vw;
+    top: .75vw;
+    left: .75vw;
+}
+
+#scott-damaged {    
+    height: 16.5vw;
+    width: 12vw;
+    top: -5vw;
+}
+
+#scott-up {
+    height: 13vw;
+    width: 13vw;
+    top: -1vw;
+    left: -2vw;
+}
+
+#ramona-container{
+    top: 24vw;
+    left: 35vw;
+}
+
+#ramona-idle{
+    width: auto;
+    height: 11vw;
+    top: -.7vw;
+    left: -.35vw;
+}
+
 #ramona-running{
     top: -1.1vw;
     left: -3vw;
+}
+
+#ramona-attack1 {
+    top: -4.5vw;
+    left: -2.1vw;
+    height: 18vw;
+    width: 16vw;
+}
+
+#ramona-attack2 {
+    top: -1.35vw;
+    left: -1.67vw;
+    height: 13vw;
+    width: 18vw;
+}
+
+#ramona-damaged {
+    top: -3.7vw;
+    left: -11.7vw;
+    height: 15.5vw;
+    width: 18vw;
+}
+
+#stills-container{
+    top: 23.5vw;
+    left: 51.1vw;
+}
+
+#stills-victory {    
+    height: 11vw;
+    width: 8vw;
+}
+
+#stills-attack1{
+    position: absolute;
+    top: -1vw;
+    left: -.5vw;
+}
+
+#kim-container{
+    top: 24.3vw;
+    left: 71.6vw;
+}
+
+#kim-idle {    
+    height: 10.33vw;
+    width: 5vw;
 }
 
 #kim-running{
@@ -157,40 +240,6 @@ background: blue;
     right: 48vw;
 }
 
-#ramona-victory, #scott-victory, #kim-victory{
-    height: 12vw;
-    width: auto;
-}
-
-#scott-victory {
-    left: 0.9vw;
-    top: -0.3vw;
-}
-
-#ramona-victory, #kim-victory {
-    left: -1vw;
-    top: -1.6vw;
-}
-
-#stills-victory {    
-    height: 11vw;
-    width: 8vw;
-}
-
-#scott-block {    
-    height: 9.5vw;
-    width: 7vw;
-    background: url('../images/scott/scott-block.png') 0px 0px;
-    background-size: 49vw 9.5vw;
-}
-
-#scott-damaged {    
-    height: 16.5vw;
-    width: 12vw;
-    background: url('../images/scott/scott-damaged.png') 0px 0px;
-    background-size: 168vw 16.5vw;
-}
-
 #matthew-container{
     top: 24vw;
     left: 21vw;
@@ -207,9 +256,32 @@ background: blue;
     left: -1vw;
 }
 
+#matthew-attack1{
+    width: 16.5vw;
+    height: 11vw;
+    top: -0.5vw;
+    left: -6vw;
+}
+
+#matthew-attack2{
+    width: 13vw;
+    height: 38vw;
+    top: -25vw;   
+    left: -4vw;
+}
+
 #matthew-damaged {
     height: 17vw;
     width: 13vw;
+    top: -5.5vw;
+    left: -2vw;
+}
+
+#matthew-up{
+    width: 15vw;
+    height: 16vw;
+    top: -4vw;
+    left: -2vw;
 }
 
 #fight-menu {    
@@ -276,7 +348,7 @@ button {
     top: 7.5vw;
 }
 
-#current-stats, #enemy-stats {
+#player-stats, #enemy-stats {
     font-size: 0.8vw;
     color: black;    
     padding: .5vw;
@@ -287,7 +359,7 @@ button {
     border-top: 0.5vw solid black;
     border-bottom: .5vw solid black;
     }
-#current-stats:before, #enemy-stats:before, #current-stats:after, #enemy-stats:after{    
+#player-stats:before, #enemy-stats:before, #player-stats:after, #enemy-stats:after{    
     content: '';
     top: 0;
     width: .5vw;
@@ -295,19 +367,19 @@ button {
     position: absolute;
     background: black;
 }
-#current-stats:before, #enemy-stats:before{left: -0.5vw}
-#current-stats:after, #enemy-stats:after{right: -0.5vw}
+#player-stats:before, #enemy-stats:before{left: -0.5vw}
+#player-stats:after, #enemy-stats:after{right: -0.5vw}
 
-#current-stats {left: 11vw;}
+#player-stats {left: 11vw;}
 #enemy-stats {left: 71vw;}
 
 .tags{
     line-height: 1.1vw;
 }
-#current-hp-num, #current-sp-num, #enemy-hp-num, #enemy-sp-num{
+#player-hp-num, #player-sp-num, #enemy-hp-num, #enemy-sp-num{
     margin-left: 7vw;
 }
-#current-hp-bar, #enemy-hp-bar {
+#player-hp-bar, #enemy-hp-bar {
     background-color: green;
     width: 10vw;
     top: 0vw;
@@ -315,15 +387,15 @@ button {
     height: .5vw;
     position: absolute;
 }
-#current-sp-bar, #enemy-sp-bar {
+#player-sp-bar, #enemy-sp-bar {
     background-color: yellow;
-    width: 10vw;
+    width: 0vw;
     top: 0.0vw;
     left: 0;
     height: .45vw;
     position: absolute;
 }
-#current-hp, #enemy-hp, #current-sp, #enemy-sp{
+#player-hp, #enemy-hp, #player-sp, #enemy-sp{
     position: absolute;
     width: 10vw;
     height: .5vw;    
@@ -332,14 +404,14 @@ button {
     border-bottom: .2vw solid black;
 }
 
-#current-hp, #enemy-hp{
+#player-hp, #enemy-hp{
     top: 0.65vw;
 }
-#current-sp, #enemy-sp{
+#player-sp, #enemy-sp{
     top: 2.7vw;
 }
 
-#current-hp:before, #enemy-hp:before, #current-sp:before, #enemy-sp:before, #current-hp:after, #enemy-hp:after, #current-sp:after, #enemy-sp:after{
+#player-hp:before, #enemy-hp:before, #player-sp:before, #enemy-sp:before, #player-hp:after, #enemy-hp:after, #player-sp:after, #enemy-sp:after{
     content: '';
     top: 0vw;
     width: .2vw;
@@ -347,5 +419,5 @@ button {
     position: absolute;
     background: black;
 }
-#current-hp:before, #enemy-hp:before, #current-sp:before, #enemy-sp:before{left: -.2vw}
-#current-hp:after, #enemy-hp:after, #current-sp:after, #enemy-sp:after{right: -.2vw}
+#player-hp:before, #enemy-hp:before, #player-sp:before, #enemy-sp:before{left: -.2vw}
+#player-hp:after, #enemy-hp:after, #player-sp:after, #enemy-sp:after{right: -.2vw}
