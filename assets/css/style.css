@@ -1,5 +1,5 @@
 body {
-    /* background-color: black; */
+    background-color: black;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -75,20 +75,17 @@ h1{
     height: auto;
 }
 
-#ramona-running, #scott-running, #stills-running, #kim-running, #stills-attack1{        
+#stills-running, #kim-running{        
     height: 11.5vw;
     width: auto;
 }
 
-#ramona-victory, #scott-victory, #kim-victory{
-    height: 12vw;
+#scott-victory, #scott-running{
+    height: 12.5vw;
     width: auto;
 }
 
-#ramona-victory, #kim-victory {
-    left: -1vw;
-    top: -1.6vw;
-}
+
 
 #scott-container {
     top: 23vw;
@@ -96,19 +93,20 @@ h1{
 }
 
 #scott-running{
-    top: 0vw;
-    left: -0.5vw;
+    top: -0.9vw;
+    left: -1.5vw;
 }
 
 #scott-victory {
     left: 0.9vw;
-    top: -0.3vw;
+    top: -1vw;
 }
 
 #scott-attack1 {
     height: 13.667vw;
     width: 10vw;
-    top: -3vw;
+    left: 0.2vw;
+    top: -2.2vw;
 }
 
 #scott-attack2 {
@@ -121,21 +119,22 @@ h1{
 #scott-block {    
     height: 11vw;
     width: 7vw;
-    top: .75vw;
+    top: 1.15vw;
     left: .75vw;
 }
 
 #scott-damaged {    
     height: 16.5vw;
     width: 12vw;
-    top: -5vw;
+    top: -4vw;
+    left: -4.5vw;
 }
 
 #scott-up {
     height: 13vw;
     width: 13vw;
     top: -1vw;
-    left: -2vw;
+    left: -5.5vw;
 }
 
 #ramona-container{
@@ -151,8 +150,17 @@ h1{
 }
 
 #ramona-running{
-    top: -1.1vw;
-    left: -3vw;
+    height: 13vw;
+    width: auto;
+    top: -2.6vw;
+    left: -3.3vw;
+}
+
+#ramona-victory {
+    left: -1.8vw;
+    top: -3vw;
+    height: 13.5vw;
+    width: auto;
 }
 
 #ramona-attack1 {
@@ -169,7 +177,21 @@ h1{
     width: 18vw;
 }
 
+#ramona-block {
+    top: -1.35vw;
+    left: -2.5vw;
+    height: 11.5vw;
+    width: 9vw;
+}
+
 #ramona-damaged {
+    top: -3.7vw;
+    left: -11.7vw;
+    height: 15.5vw;
+    width: 18vw;
+}
+
+#ramona-up {
     top: -3.7vw;
     left: -11.7vw;
     height: 15.5vw;
@@ -181,6 +203,10 @@ h1{
     left: 51.1vw;
 }
 
+#stills-running{
+    top: -0.5vw;
+}
+
 #stills-victory {    
     height: 11vw;
     width: 8vw;
@@ -188,8 +214,38 @@ h1{
 
 #stills-attack1{
     position: absolute;
-    top: -1vw;
-    left: -.5vw;
+    top: -1.5vw;
+    left: -.6vw;
+    height: 12.5vw;
+    width: auto;
+}
+
+#stills-attack2 {
+    top: -7.35vw;
+    left: -8.5vw;
+    height: 19vw;
+    width: 30vw;
+}
+
+#stills-block {
+    top: -.05vw;
+    left: -.1vw;
+    height: 11vw;
+    width: 7.75vw;
+}
+
+#stills-damaged {
+    top: -5vw;
+    left: -10vw;
+    height: 16.5vw;
+    width: 16vw;
+}
+
+#stills-up {
+    top: -4.2vw;
+    left: -8vw;
+    height: 16.5vw;
+    width: 16vw;
 }
 
 #kim-container{
@@ -205,6 +261,47 @@ h1{
 #kim-running{
     top: -0.8vw;
     left: -0.5vw;
+}
+
+#kim-victory {
+    height: 12vw;
+    width: auto;
+    left: -1vw;
+    top: -1.4vw;
+}
+
+#kim-attack1 {    
+    height: 11.5vw;
+    width: 13vw;
+    left: -1vw;
+}
+
+#kim-attack2 {    
+    height: 14vw;
+    width: 21vw;
+    left: -4vw;
+    top: -3.5vw;
+}
+
+#kim-block {    
+    height: 12vw;
+    width: 7vw;
+    left: -0.3vw;
+    top: -0.6vw;
+}
+
+#kim-damaged {    
+    height: 16.5vw;
+    width: 21.5vw;
+    left: -14.8vw;
+    top: -4.6vw;  
+}
+
+#kim-up {    
+    height: 16.5vw;
+    width: 20vw;
+    left: -14.3vw;
+    top: -5.6vw;
 }
 
 #scott-stats, #ramona-stats, #stills-stats, #kim-stats {
@@ -251,37 +348,163 @@ background: blue;
 }
 
 #matthew-running {
-    height: 11vw;
+    height: 13vw;
     width: 10vw;
     left: -1vw;
+    top: -1.5vw;
 }
 
 #matthew-attack1{
     width: 16.5vw;
-    height: 11vw;
-    top: -0.5vw;
-    left: -6vw;
+    height: 12vw;
+    top: -1vw;
+    left: -5vw;
 }
 
 #matthew-attack2{
     width: 13vw;
     height: 38vw;
-    top: -25vw;   
-    left: -4vw;
+    top: -25.75vw;   
+    left: -1.5vw;
 }
 
 #matthew-damaged {
-    height: 17vw;
+    height: 18vw;
     width: 13vw;
-    top: -5.5vw;
-    left: -2vw;
+    top: -7.25vw;
+    left: 2vw;    
 }
 
 #matthew-up{
     width: 15vw;
-    height: 16vw;
-    top: -4vw;
+    height: 18vw;
+    top: -6.5vw;
+    left: .5vw;
+}
+
+#matthew-death{
+    position: absolute;
+    width: 19vw;
+    height: 23vw;
+    top: 5vw;
+    left: 12vw;
+    background-image: url(../images/matthew/matthew-death.png);
+    background-size: 247vw 23vw;
+}
+
+#roxxy-container{
+    top: 24.5vw;
+    left: 41vw;
+}
+
+#roxxy-idle {
+    height: 10vw;
+    width: 11vw;
+}
+
+#roxxy-running {
+    height: 16.5vw;
+    width: 10vw;
+    left: 2.05vw;
+    top: -5.1vw;
+}
+
+#roxxy-attack1{
+    width: 16.5vw;
+    height: 21vw;
+    top: -11vw;
+    left: 0vw;
+}
+
+#roxxy-attack2{
+    width: auto;
+    height: 16.5vw;
+    top: -6vw;   
+    left: -12vw;
+}
+
+#roxxy-damaged {
+    height: 16.5vw;
+    width: auto;
+    top: -6vw;
+    left: -3vw;    
+}
+
+#roxxy-up{
+    width: 18vw;
+    height: 16.5vw;
+    top: -6.5vw;
+    left: -2.5vw;
+}
+
+#roxxy-death{
+    position: absolute;
+    width: 30vw;
+    height: 22.5vw;
+    top: 20vw;
+    left: 39vw;
+}
+
+#envy-container{
+    position: absolute;
+    top: 24.5vw;
+    left: 65vw;
+}
+
+#envy-idle {
+    top: -1vw;
+    height: 11.5vw;
+    width: 7.5vw;
+}
+
+#envy-running {
+    height: 12vw;
+    width: auto;
+    left: -2.05vw;
+    top: -1.7vw;
+}
+
+#envy-attack1{
+    position: absolute;
+    width: 12vw;
+    height: 12.5vw;
+    top: -2vw;
     left: -2vw;
+}
+
+#envy-summon{
+    top: -4.25vw;
+    left: -3vw;
+    height: 15vw;
+    width: auto;
+}
+#lynette {
+    top: -4.25vw;
+    left: -35vw;
+    height: 16vw;
+    width: auto;
+}
+
+#envy-damaged {
+    height: 15.5vw;
+    width: 17.5vw;
+    top: -5.1vw;
+    left: .5vw;
+}
+
+#envy-up{
+    width: 17.5vw;
+    height: 15.5vw;
+    top: -5vw;
+    left: .5vw;
+}
+
+#envy-death{
+    position: absolute;
+    width: 16.5vw;
+    height: 18.5vw;
+    top: 16.5vw;
+    left: 54vw;
 }
 
 #fight-menu {    
@@ -352,7 +575,7 @@ button {
     font-size: 0.8vw;
     color: black;    
     padding: .5vw;
-    top: 32vw;    
+    top: 22vw;    
     width: 12.5vw;
     height: 4vw;
     background-color: white;    
@@ -421,3 +644,7 @@ button {
 }
 #player-hp:before, #enemy-hp:before, #player-sp:before, #enemy-sp:before{left: -.2vw}
 #player-hp:after, #enemy-hp:after, #player-sp:after, #enemy-sp:after{right: -.2vw}
+#envy-difficulty, #roxxy-difficulty, #matthew-difficulty{
+    top: 12vw;
+    left: -5vw;
+}

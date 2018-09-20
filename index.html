@@ -13,7 +13,7 @@
             
         <!-- <p id="title">click me</p> -->
         <div id="wrapper">
-            <!-- <img id=filler src="assets/images/Place-Holder.jpg">
+            <img id=filler src="assets/images/Place-Holder.jpg">
             <img src="assets/images/vbi.PNG" alt="loading-screen" id="loading-screen"   class="background" hidden>
             <img src="" alt="title-screen"                        id="title-screen"     class="background" hidden>
             <img src="" alt="logo"                                id="logo"             class="layer2" hidden>
@@ -34,23 +34,25 @@
             </div>
             <div                                                  id="scott-stats"      class="scott layer3" hidden>
                 <h1>SCOTT PILGRIM</h1>
-                <h1>HP: 141</h1>
-                <h1>ATTACK POWER: 12</h1>
+                <h1>HP: 200</h1>
+                <h1>ATTACK POWER: 9</h1>
                 <h1>MAIN ATTACK: UPPERCUT</h1>
                 <h1>SPECIAL ATTACK: FLURRY</h1>                
             </div>
-             -->
-            <div                                                  id="ramona-container" class="ramona layer2" >
-                <img src="assets/images/ramona/ramona-idle.gif" alt="ramona-idle"                     id="ramona-idle"      class="ramona layer2" >
+            
+            <div                                                  id="ramona-container" class="ramona layer2" hidden>
+                <img src="" alt="ramona-idle"                     id="ramona-idle"      class="ramona layer2" >
                 <img src="" alt="ramona-running"                  id="ramona-running"   class="ramona layer2" hidden>
                 <img src="" alt="ramona-victory"                  id="ramona-victory"   class="ramona layer2" hidden>
-                <!-- <p                                                id="ramona-attack1"   class="ramona layer2" hidden></p> -->
-                <!-- <p                                                id="ramona-attack2"   class="ramona layer2" hidden></p> -->
-                <p                                                id="ramona-damaged"   class="ramona layer2"></p>
+                <p                                                id="ramona-attack1"   class="ramona layer2" hidden></p>
+                <p                                                id="ramona-attack2"   class="ramona layer2" hidden></p>
+                <p                                                id="ramona-block"   class="ramona layer2" hidden></p>
+                <p                                                id="ramona-damaged"   class="ramona layer2" hidden></p>
+            <p                                                    id="ramona-up"        class="ramona layer2" hidden></p>
             </div>
-            <!-- <div                                                  id="ramona-stats"     class="ramona layer3" hidden>
+            <div                                                  id="ramona-stats"     class="ramona layer3" hidden>
                 <h1>RAMONA FLOWERS</h1>
-                <h1>HP: 141</h1>
+                <h1>HP: 100</h1>
                 <h1>ATTACK POWER: 12</h1>
                 <h1>MAIN ATTACK: HAMMER SWING</h1>
                 <h1>SPECIAL ATTACK: SHOTGUN PUNCH</h1>                
@@ -59,13 +61,17 @@
             <div                                                  id="stills-container" class="stills layer2" hidden>
                 <img src="" alt="stills-idle"                     id="stills-idle"      class="stills layer2" >
                 <img src="" alt="stills-running"                  id="stills-running"   class="stills layer2" hidden>
-                <img src="" alt="stills-attack1"                  id="stills-attack1"   class="stills layer2" hidden>
-                <p                                                id="stills-victory"   class="stills layer2"></p>
+                <img src=""                                       id="stills-attack1"   class="stills layer2" hidden>
+                <p                                                id="stills-victory"   class="stills layer2" ></p>
+                <p                                                id="stills-attack2"   class="stills layer2" hidden></p>
+                <p                                                id="stills-block"   class="stills layer2" hidden></p>
+                <p                                                id="stills-damaged"   class="stills layer2" hidden></p>
+                <p                                                id="stills-up"   class="stills layer2" hidden></p>
             </div>
             <div                                                  id="stills-stats"     class="stills layer3" hidden>
                 <h1>STEPHEN STILLS</h1>
-                <h1>HP: 141</h1>
-                <h1>ATTACK POWER: 12</h1>
+                <h1>HP: 500</h1>
+                <h1>ATTACK POWER: 5</h1>
                 <h1>MAIN ATTACK: PUMMEL</h1>
                 <h1>SPECIAL ATTACK: SHOCKWAVE</h1>                
             </div>
@@ -74,27 +80,56 @@
                 <p                                                id="kim-idle"         class="kim layer2" ></p>
                 <img src="" alt="kim-running"                     id="kim-running"      class="kim layer2" hidden>
                 <img src="" alt="kim-victory"                     id="kim-victory"      class="kim layer2" hidden>
+                <p                                                id="kim-attack1"      class="kim layer2" hidden></p>
+                <p                                                id="kim-attack2"      class="kim layer2" hidden></p>
+                <p                                                id="kim-block"      class="kim layer2" hidden></p>
+                <p                                                id="kim-damaged"      class="kim layer2" hidden></p>
+                <p                                                id="kim-up"      class="kim layer2" hidden></p>
             </div>
             <div                                                  id="kim-stats"        class="kim layer3" hidden>
                 <h1>KIM PINE</h1>
-                <h1>HP: 141</h1>
-                <h1>ATTACK POWER: 12</h1>
+                <h1>HP: 300</h1>
+                <h1>ATTACK POWER: 7</h1>
                 <h1>MAIN ATTACK: SLAP</h1>
                 <h1>SPECIAL ATTACK: SNEEZE</h1>                
             </div>
             <div                                                  id="matthew-container"class="matthew layer2" hidden>
+                <h1 id="matthew-difficulty" class="matthew layer3" hidden>Difficulty: ★</h1>
                 <p                                                id="matthew-idle"     class="matthew layer2"></p>
                 <p                                                id="matthew-running"  class="matthew layer2" hidden></p>                
                 <p                                                id="matthew-attack1" class="matthew layer2"></p>
                 <p                                                id="matthew-attack2" class="matthew layer2"></p>
                 <p                                                id="matthew-damaged" class="matthew layer2"></p>
                 <p                                                id="matthew-up" class="matthew layer2"></p>
-
             </div>
-            <img src="" alt="matthew-bg"                          id="matthew-background"       class="background" hidden>
-            <div id="envy-container" class="envy layer2">
-                <p id="envy-death" class="envy layer2"></p>
+            <p                                                id="matthew-death" class="matthew layer2" hidden></p>
+            <img src="" alt="matthew-bg"                          id="matthew-background"       class="background" hidden>            
+            
+            <div                                                  id="roxxy-container"class="roxxy layer2" hidden>
+                <h1 id="roxxy-difficulty" class="roxxy layer3" hidden>Difficulty: ★★</h1>
+                <p                                                id="roxxy-idle"     class="roxxy layer2" ></p>
+                <p                                                id="roxxy-running"  class="roxxy layer2" hidden></p>                
+                <p                                                id="roxxy-attack1" class="roxxy layer2"></p>
+                <img src=""                                       id="roxxy-attack2" class="roxxy layer2" hidden>
+                <img src=""                                        id="roxxy-damaged" class="roxxy layer2" hidden>
+                <p                                                id="roxxy-up" class="roxxy layer2"></p>
             </div>
+            <p                                                      id="roxxy-death" class="roxxy layer2" hidden></p>
+            <img src="" alt="roxxy-bg"                              id="roxxy-background"       class="background" hidden>
+            <div                                                     id="envy-container" class="envy layer2"hidden>
+                <h1 id="envy-difficulty" class="envy layer3" hidden>Difficulty: ★★★</h1>
+                <p                                                   id="envy-idle" class="envy layer2"></p>
+                <img src=""                                          id="envy-running" class="envy layer2" hidden>
+                <p                                                  id="envy-attack1" class="envy layer2" hidden></p>
+                <div                                                id="envy-attack2" class="envy layer2"hidden>
+                    <img src=""                                     id="envy-summon" class="envy layer2">
+                    <img src=""                                     id="lynette" class="envy layer2">
+                </div>
+                <p                                                  id="envy-damaged" class="envy layer2" hidden></p>
+                <p                                                  id="envy-up" class="envy layer2" hidden></p>                
+            </div>
+            <p                                                      id="envy-death" class="roxxy layer2" hidden></p>            
+            <img src="" alt="envy-bg"                               id="envy-background"       class="background" hidden>            
             <div id="fight-menu" class="layer4" hidden>
                 <button id="attack1-button">Attack</button>
                 <button id="attack2-button" disabled>Special</button>
@@ -116,14 +151,21 @@
                 <p class="tags" >SP:</p><div id="enemy-sp" ><div id="enemy-sp-bar" ></div></div>
                 <p class="tags" id="enemy-sp-num">0/100</p>
             </div>
+            <img src="" id="the-end" class="background" hidden>
         </div>
 
         <audio id="title-music" loop></audio>        
         <audio id="matthew-music" loop></audio>
+        <audio id="roxxy-music" loop></audio>
         <audio id="game-over"></audio>
         <audio id="area-clear"></audio>
+        <audio id="suspense"></audio>
+        <audio id="select-music" loop></audio>
+        <audio id="boss-rush"></audio>
+        <audio id="envy-music" loop></audio>
+        <audio id="end-music" loop></audio>
 
-        <script type="text/javascript" src="assets/javascript/game.js"></script> -->
-        </div><script type="text/javascript" src="assets/javascript/animation.js"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <!-- </div><script type="text/javascript" src="assets/javascript/animation.js"></script> -->
     </body>
 </html>
