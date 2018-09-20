@@ -1,3 +1,8 @@
 # unit-4-game
 https://acuteangel.github.io/unit-4-game/
 
+A turn based fighter, using assets from Scott Pilgrim vs The World: The Game. This is my submission for the assignment: Star Wars RPG Game.
+
+When the game starts, you are presented a character selection. This displays the stats of the characters upon hover. Once a character is selected, the scene transitions to enemy selection. The enemies scale in difficulty, from easiest on the left to hardest on the right. Once the enemy is selected, both players are moved to a battlefield. The player now has options to Attack or Block. Flee serves no practical use and Special can only be used when the character has 100 SP.  Whenever the player attacks, they damage the enemy. The opponent then loses HP which is displayed besides them. The player also gains SP for attacking. If the opponent survives, they will attack back, using a standard attack unless their SP is at 100 in which case they'll use their Special. If the player blocks instead of attacking, the enemy does 1/4 damage. If the enemy uses a Special, they do 4 times damage.   When the enemy loses all of his health points, the enemy dies and the player is returned to the enemy selection screen. 
+
+Each time the player attacks, their character's attack power increases by the base attack power. The enemy attack power never changes. Player specials do double damage, enemy specials do 4x. Characters cannot heal in combat, however player hp is restored to full between each battle. 

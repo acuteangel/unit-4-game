@@ -1,25 +1,30 @@
 $(document).ready(function() {
+    //scene counter to track the game scene
     var scene = 0;
-    // var positionX = 0
+    //arrays containing strings of the characters and enemies
+    //the chosen characters' and enemies' names will be assigned to player/enemy and the object will be assigned to playerVar/enemyVar
     var playableCharacters = ["scott", "ramona", "stills", "kim"];    
     var availableEnemies = ["matthew", "roxxy", "envy"]
     var player = "";
     var playerVar;
     var enemy = "";
     var enemyVar;
+    //variables used for displaying messages, playing bgm, stopping animations
     var message= "";
     var song ="";
     var runningID=[];
     var isTextUp = false;
     var moveSequence = false;
+    //variables used for combat
     var playerhp;
     var playerpow;
     var playersp;
     var enemyhp;
     var enemysp;
+    //objects for each player, with their 
     var scott = {
         maxhp: 200,
-        pow: 9,
+        pow: 900,
         attack1: function(){motionTemplate (150, 10, 70, false, "scott", "attack1", "80vw 13.667vw")},    
         attack2: function(){motionTemplate(150, 10, 160, false, "scott", "attack2", "170vw 10.333vw")},    
         block: function(){motionTemplate(150, 7.5, 45, false, "scott", "block", "52.5vw 11vw")},
@@ -257,13 +262,13 @@ $(document).ready(function() {
             $("#"+char+"-idle").toggle();
             $("#"+char+"-running").toggle();
             $("#"+char+"-stats").toggle();
-        } else if (scene==3 || scene == 5){
+        } else if (scene==3 || scene == 5 || scene == 7){
             $("#"+char+"-idle").toggle();
             $("#"+char+"-running").toggle();
+            $("#"+char+"-difficulty").toggle();
         }
     }
 
-    
     function selectTrigger(index, value){
         $("#"+value+"-container").on("click", function() {characterSelect(index, value)})
     }
@@ -339,6 +344,7 @@ $(document).ready(function() {
                 $.each(availableEnemies, characterFadeOut);
                 $("#"+value+"-running").hide();
                 $("#enemy-select").fadeOut("slow", function(){
+                    $("#"+enemy+"-difficulty").remove();
                     $(song).remove();
                     clearAllIntervals();
                     battlescene();
@@ -346,6 +352,7 @@ $(document).ready(function() {
             })
         }
     }
+
     function displayText(message){
         $("#text-message").text(message)
         $("#text-menu").show(1);
@@ -534,11 +541,10 @@ $(document).ready(function() {
     $("#flee-button").on("click", function(){
         displayText("Can't flee this fight!");
     })
-
-    //
     
     function returnToEnemySelect(){
-        scene++;        
+        scene++;
+        console.log(scene);        
         $("#enemy-select").fadeIn("slow");
         $("#"+enemy+"-container").remove();
         $("#"+enemy+"-death").fadeIn("3000", enemyVar.death())

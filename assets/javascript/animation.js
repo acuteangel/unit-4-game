@@ -1,3 +1,9 @@
+
+
+//This script does nothing, it's just used to test functions without creating a mess in my game script
+
+
+
 $(document).ready(function() {
 
     
