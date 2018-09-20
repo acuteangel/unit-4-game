@@ -24,7 +24,7 @@ $(document).ready(function() {
     //objects for each player, with their 
     var scott = {
         maxhp: 200,
-        pow: 900,
+        pow: 9,
         attack1: function(){motionTemplate (150, 10, 70, false, "scott", "attack1", "80vw 13.667vw")},    
         attack2: function(){motionTemplate(150, 10, 160, false, "scott", "attack2", "170vw 10.333vw")},    
         block: function(){motionTemplate(150, 7.5, 45, false, "scott", "block", "52.5vw 11vw")},
